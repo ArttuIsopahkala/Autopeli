@@ -33,6 +33,15 @@
     <ClCompile Include="meter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="playerVehicle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vehicle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="opposingVehicle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h">
@@ -60,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="opposingVehicle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PointHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

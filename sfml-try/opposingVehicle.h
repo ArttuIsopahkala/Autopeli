@@ -6,16 +6,13 @@
 
 class OpposingVehicle : public Vehicle {
 private:
-
+	int prize;
 public:
 	OpposingVehicle();
 	~OpposingVehicle();
-	void die() {
-		givePoints();
-		erase();
-	};
-
-	OpposingVehicle(std::string, int, sf::Texture *);  // Luo hahmo
+	void die();
+	int givePrize();
+	OpposingVehicle(std::string, int, sf::Texture *, sf::Color, int, int, int, int);  // Luo hahmo
 	void draw(sf::RenderWindow &);
 };
 #endif

@@ -24,7 +24,10 @@
     <ClCompile Include="gamestatus.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="meter.cpp" />
+    <ClCompile Include="opposingVehicle.cpp" />
+    <ClCompile Include="playerVehicle.cpp" />
     <ClCompile Include="teksti.cpp" />
+    <ClCompile Include="vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
@@ -34,6 +37,7 @@
     <ClInclude Include="meter.h" />
     <ClInclude Include="opposingVehicle.h" />
     <ClInclude Include="playerVehicle.h" />
+    <ClInclude Include="PointHandler.h" />
     <ClInclude Include="teksti.h" />
     <ClInclude Include="vehicle.h" />
   </ItemGroup>

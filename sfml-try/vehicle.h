@@ -11,15 +11,10 @@ protected:
 	int y;
 
 public:
-	Vehicle();
+	Vehicle(std::string, int, sf::Texture *, int, int, int);
 	~Vehicle();
-	void setDimensions(int x, int y) {
-		this->x = x;
-		this->y = y;
-	};
-	void setSpeed(int speed) {
-		this->speed = speed;
-	};
+	void setDimensions(int x, int y);
+	void setSpeed(int speed);
 
 	virtual void die() = 0;
 
