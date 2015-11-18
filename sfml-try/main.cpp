@@ -46,6 +46,8 @@ int main() {
 	sf::Clock dClock; 
 
 	int y = 0;
+	int carspeed = 0;
+
 	//Taustakuva
 	sf::Image background_image;
 	background_image.loadFromFile("background.jpg");
@@ -65,8 +67,11 @@ int main() {
 	Gamestatus pelitila;
 
 	// Hahmot
-	sf::Texture vmantex,smantex;
-	Character sman("superman.png", ag::CHARACTER_DISTANCE, &smantex);	
+	sf::Texture vmantex,smantex,playertex;
+	Character sman("playercar.png", ag::CHARACTER_DISTANCE, &playertex);
+	Character auto1("superman.png", ag::CHARACTER_DISTANCE, &smantex);
+	Character auto2("viikatemies.png", ag::CHARACTER_DISTANCE, &vmantex);
+	Character auto3("playercar.png", ag::CHARACTER_DISTANCE, &playertex);
 
 	//Tekstit
 	Teksti text("Superman voitti eran!\nR=Uusi peli | Esc=Lopeta","Viikatemies=","Supermies=","-");
@@ -89,7 +94,7 @@ int main() {
 	   tapahtumat.kasittele(window);
 
 		// Pelinopeus FPS:st‰ riippumaton vakio
-		float d = dClock.restart().asSeconds();
+		float d = dClock.restart().asMilliseconds();
 		float siirtyma = d * ag::GAME_SPEED;
 		
 		// Peli kaynnissa
@@ -136,18 +141,27 @@ int main() {
 			}*/
 
 			// Taustakuvien liikutus
-			y = y + 1;
+
+			y += 4; // 1 = nopeus
+
+			//speed = oppositevehicle.getSpeed();
+			int speed = 3;
+			
+			carspeed += speed;
+		
 			background.setPosition(0, y);
 			background2.setPosition(0, y - ag::ZONE_HEIGHT);
 			if (background.getPosition().y > ag::ZONE_HEIGHT) {
-				y = 0;
-				background.setPosition(0, 0 - ag::ZONE_HEIGHT);
-			}
-			if (background2.getPosition().y > ag::ZONE_HEIGHT) {
-				y = 0;
-				background2.setPosition(0, 0 - ag::ZONE_HEIGHT);
+			y = 0;
 			}
 
+			//vastustajien valuminen
+			auto1.setPosition(50, carspeed);
+			auto2.setPosition(100, carspeed);
+			auto3.setPosition(200, carspeed);
+			if (auto1.getPosition().y > ag::ZONE_HEIGHT) {
+				carspeed = 0;
+			}
 		} // Peli kaynnissa
 
 		// Tyhjataan naytto
@@ -156,6 +170,9 @@ int main() {
 		// Piirrellaan oliot naytolle
 		window.draw(background, sf::RenderStates::Default); // T‰‰ pit‰‰ luoda ensin.
 		window.draw(background2, sf::RenderStates::Default); // T‰‰ pit‰‰ luoda ensin.
+		auto1.draw(window);
+		auto2.draw(window);
+		auto3.draw(window);
 	    sman.draw(window);	
 		text.drawloop(window);
 		meter.draw(window);

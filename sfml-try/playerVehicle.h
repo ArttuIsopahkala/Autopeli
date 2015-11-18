@@ -12,7 +12,7 @@ public:
 	~PlayerVehicle();
 	void shoot(int target_x, int target_y);
 	void die() {
-		resetGame();
+		//resetGame();
 	};
 
 	void setPoints(int points) {
