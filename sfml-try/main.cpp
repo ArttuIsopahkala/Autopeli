@@ -47,6 +47,7 @@ int main() {
 
 	int y = 0;
 	int carspeed = 0;
+	int carx = 0;
 
 	//Taustakuva
 	sf::Image background_image;
@@ -140,27 +141,32 @@ int main() {
 				meter.paivitaMeter(0, smp);
 			}*/
 
-			// Taustakuvien liikutus
-
-			y += 4; // 1 = nopeus
-
+			// Taustakuvan liikutus
+			y += 4; // = nopeus
 			//speed = oppositevehicle.getSpeed();
 			int speed = 3;
 			
 			carspeed += speed;
-		
+			auto2.setPosition(carx, carspeed);
+
 			background.setPosition(0, y);
 			background2.setPosition(0, y - ag::ZONE_HEIGHT);
-			if (background.getPosition().y > ag::ZONE_HEIGHT) {
-			y = 0;
-			}
+			if (background.getPosition().y > ag::ZONE_HEIGHT) { y = 0; }
 
-			//vastustajien valuminen
-			auto1.setPosition(50, carspeed);
-			auto2.setPosition(100, carspeed);
-			auto3.setPosition(200, carspeed);
-			if (auto1.getPosition().y > ag::ZONE_HEIGHT) {
+			//auto1.setPosition(50, carspeed);
+			
+			//auto3.setPosition(200, carspeed);
+			if (auto2.getPosition().y > ag::ZONE_HEIGHT) {
 				carspeed = 0;
+				int laneCenter = ag::ZONE_WIDTH / 6 / 2;
+				int randNum = rand() % 6 + 1;
+				//vastustajien valuminen
+				if (randNum == 1) { carx = laneCenter; }
+				else if (randNum == 2) { carx = laneCenter *2; }
+				else if (randNum == 3) { carx = laneCenter *3; }
+				else if (randNum == 4) { carx = laneCenter *4; }
+				else if (randNum == 5) { carx = laneCenter *5; }
+				else if (randNum == 6) { carx = laneCenter *6; }
 			}
 		} // Peli kaynnissa
 
