@@ -7,7 +7,7 @@ namespace  ag
 	const int BORDER_LIMIT       = 20;
 	const int COLLISION_LIMIT    = 30;
 	const int CHARACTER_DISTANCE = 100;
-	const float GAME_SPEED       = 200.0f;
+	const float GAME_SPEED       = 0.5f;
 
 }
 #endif
